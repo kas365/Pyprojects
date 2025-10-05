@@ -44,16 +44,7 @@ def matx_add():
         print("RESULT:")
         print(a1+a2)
 
-menu()
-
-op = input("ENTER YOUR CHOICE : ")
-
-while op != '0':
-
-    if op == '1':
-        print(matx_add())
-
-    elif op == '2':
+def matx_sub():
         rows = get_rows()
         col = get_col()
         a1 = matx(rows,col)
@@ -61,8 +52,8 @@ while op != '0':
         a2 = matx(rows,col)
         print(a2)
         print(f"{a1-a2}")
-        
-    elif op == '3':
+    
+def matx_scaler():
         rows = get_rows()
         col = get_col()
         a1 = matx(rows,col)
@@ -71,7 +62,7 @@ while op != '0':
         print(s)
         print(a1*s)
 
-    elif op == '4':
+def matx_multi():
         rows = get_rows()
         col = get_col()
         # input of matrix 1:
@@ -93,22 +84,51 @@ while op != '0':
         else:
             print("ERROR : number of cols. of a1 = number of rows of a2")
 
-
-    elif op == '5':
+def transpose_():
         rows = get_rows()
         col = get_col()
         a1 = matx(rows,col)
         print(a1)
         print(a1.T)
-
-    elif op == '6':
-        e = int(input("Enter the number of elements (n --> (n*n) number of elements): "))
+    
+def matx_id():
+        e = int(input("Enter the number of elements : "))
         a1 = np.identity(e)
         print(a1)
 
+def main():
+
     menu()
-    op = input("ENTER YOUR CHOICE : ") 
+    
+    op = input("ENTER YOUR CHOICE : ")
+    
+    while op != '0':
+    
+        if op == '1':
+            matx_add()
+    
+        elif op == '2':
+            matx_sub()
+            
+        elif op == '3':
+            matx_scaler()
+            
+        elif op == '4':
+            matx_multi()
+    
+        elif op == '5':
+            transpose_()
+    
+        elif op == '6':
+            matx_id()
+    
+        menu()
+        op = input("ENTER YOUR CHOICE : ") 
+    
+    else:
+        print("have a wonderful day ahead!!! :) ")
 
-else:
-    print("have a wonderful day ahead!!! :) ")
-
+if __name__ == "__main__":
+    main()
+    
+    
